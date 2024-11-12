@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Review Detection</title>
+    <style>
+        body {
+            background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20210923/pngtree-geometric-solid-background-image_901731.jpg'); /* Background image */
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the background image */
+            display: flex; /* Use flexbox for centering */
+            flex-direction: column; /* Arrange elements vertically */
+            align-items: center; /* Center items horizontally */
+            justify-content: center; /* Center items vertically */
+            height: 100vh; /* Full height of the viewport */
+            color: white; /* Text color */
+            text-align: center; /* Center text */
+            margin: 0; /* Remove default margin */
+        }
+
+        h1 {
+            margin-bottom: 20px; /* Space between heading and form */
+        }
+
+        textarea {
+            width: 100%; /* Make textarea responsive */
+            max-width: 500px; /* Set a max width */
+            height: 100px; /* Increased height */
+            margin: 10px auto; /* Center the textarea with auto margins */
+            display: block; /* Ensure textarea behaves as a block element */
+            resize: none; /* Optional: prevent resizing */
+        }
+
+        button {
+            padding: 10px 20px; /* Padding for button */
+            font-size: 16px; /* Font size for button */
+        }
+    </style>
+</head>
+<body>
+    <h1>Fake Review Detection System</h1>
+    <form action="/predict" method="post">
+        <label for="review">Enter your review:</label><br>
+        <textarea id="review" name="review" rows="6" placeholder="Enter your review here..."></textarea><br>
+        <button type="submit">Analyze Review</button>
+    </form>
+    {% if prediction %}
+        <h2>Review: "{{ review }}"</h2>
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
